@@ -27,20 +27,17 @@ describe("EventoService.criar (integração)", () => {
     expect(total).toBe(0);
   });
 
-  it("grava o evento no banco com o nome correto", async () => {
-    // Arrange
-    const dados = {
-      nome: "Evento de Tecnologia",
-      data: "2026-11-20"
-    };
-
-    // Act
-    const criado = await EventoService.criar(dados);
-
-    // Assert: consultar o banco de verdade
-    const doBanco = await Evento.findByPk(criado.id);
-
-    expect(doBanco).not.toBeNull();
-    expect(doBanco.nome).toBe("Evento de Tecnologia");
-  });
+  // ============================================================
+  // SUA VEZ: complete o teste abaixo, seguindo o modelo do
+  // participante.integration.test.js (teste "grava o participante...").
+  //
+  // 1. Arrange: monte os dados de um evento válido (nome e data)
+  // 2. Act:     chame EventoService.criar(dados) com await
+  // 3. Assert:  busque o evento no banco com Evento.findByPk(criado.id)
+  //             e confira o nome gravado
+  //
+  // Depois, apague o ".todo" da linha abaixo e troque por um teste completo:
+  //   it("grava o evento no banco com o nome correto", async () => { ... });
+  // ============================================================
+  it.todo("grava o evento no banco com o nome correto");
 });
