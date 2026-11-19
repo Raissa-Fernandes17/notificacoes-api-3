@@ -40,6 +40,7 @@ describe("POST /eventos (rota protegida)", () => {
     expect(resposta.body.erro.mensagem).toBe("Token não fornecido");
   });
 
+  // Parte 3 — Teste 1: rota protegida com token
   it("responde 201 quando manda um token válido", async () => {
     // Arrange: pega um token (o helper faz cadastro + login) e monta o evento
     const token = await obterToken();
@@ -58,6 +59,7 @@ describe("POST /eventos (rota protegida)", () => {
 });
 
 describe("GET /eventos/:id (rota pública)", () => {
+  // Parte 4 — Teste 2: rota pública, evento que não existe
   it("responde 404 quando o evento não existe", async () => {
     // Act: peçam um id que não existe no banco de teste
     const resposta = await request(app).get("/eventos/999999");
@@ -67,6 +69,7 @@ describe("GET /eventos/:id (rota pública)", () => {
     expect(resposta.body.erro.mensagem).toBe("Evento não encontrado(a)");
   });
 
+  // Parte 5 — Teste 3: o desafio (id com letras)
   it("responde 400 quando o id tem letras", async () => {
     // Arrange: gravem um evento direto no banco
     const evento = await Evento.create({ nome: "Semana de Tecnologia", data: "2026-11-20" });
